@@ -43,7 +43,7 @@ export default function LoginScreen({ navigation }) {
       >
         <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
           <Text style={styles.title}>Welcome Back</Text>
-          <Text style={styles.subtitle}>Log in to your MoneyTrack account</Text>
+          <Text style={styles.subtitle}>Log in to your ORI account</Text>
 
           <View style={styles.form}>
             <View style={styles.inputGroup}>

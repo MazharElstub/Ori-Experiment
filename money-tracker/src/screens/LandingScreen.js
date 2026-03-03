@@ -15,7 +15,7 @@ export default function LandingScreen({ navigation }) {
 
       <View style={styles.hero}>
         <Text style={styles.logo}>💰</Text>
-        <Text style={styles.appName}>MoneyTrack</Text>
+        <Text style={styles.appName}>ORI</Text>
         <Text style={styles.tagline}>Take control of your finances</Text>
       </View>
 
