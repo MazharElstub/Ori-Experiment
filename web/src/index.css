@@ -1,3 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colours */
+  --color-primary: #0F172A;
+  --color-secondary: #64748B;
+  --color-accent: #3B82F6;
+  --color-accent-dark: #2563EB;
+  --color-background: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-border: #E2E8F0;
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+
+  /* Lever colours */
+  --color-lever-political: #8B5CF6;
+  --color-lever-tax: #3B82F6;
+  --color-lever-local: #F59E0B;
+  --color-lever-animal: #EC4899;
+  --color-lever-environment: #22C55E;
+  --color-lever-warfare: #EF4444;
+  --color-lever-employment: #06B6D4;
+
+  /* Score colours */
+  --color-score-excellent: #22C55E;
+  --color-score-good: #84CC16;
+  --color-score-mixed: #F59E0B;
+  --color-score-poor: #F97316;
+  --color-score-bad: #EF4444;
+
+  /* Font */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Base resets */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -9,9 +45,10 @@ html, body, #root {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: #F2F2F7;
+  font-family: var(--font-sans);
+  background: var(--color-background);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #root {
@@ -19,16 +56,18 @@ body {
   justify-content: center;
 }
 
+/* App shell - mobile-first container */
 .app-shell {
   width: 100%;
   max-width: 430px;
   min-height: 100%;
-  background: #FFFFFF;
+  background: var(--color-surface);
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
+/* Default button/input resets */
 button {
   border: none;
   cursor: pointer;

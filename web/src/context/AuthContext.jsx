@@ -39,6 +39,7 @@ export function AuthProvider({ children }) {
   }
 
   async function deleteAccount() {
+    // TODO: In Phase 6, implement actual account deletion via Supabase admin API
     await supabase.auth.signOut()
   }
 

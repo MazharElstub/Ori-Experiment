@@ -1,13 +1,17 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Eye, ShieldCheck, TrendingUp, Leaf } from 'lucide-react'
+import Button from '../components/ui/Button'
 
-function FeatureRow({ icon, title, desc }) {
+function FeatureRow({ icon: Icon, title, desc }) {
   return (
-    <div style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
-      <span style={{ fontSize: 28, width: 36, textAlign: 'center', flexShrink: 0 }}>{icon}</span>
+    <div className="flex gap-4 items-start">
+      <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent">
+        <Icon size={20} />
+      </div>
       <div>
-        <p style={{ fontSize: 17, fontWeight: 600, color: '#1C1C1E', marginBottom: 2 }}>{title}</p>
-        <p style={{ fontSize: 14, color: '#8E8E93', lineHeight: 1.5 }}>{desc}</p>
+        <p className="text-base font-semibold text-primary">{title}</p>
+        <p className="text-sm text-secondary leading-relaxed mt-0.5">{desc}</p>
       </div>
     </div>
   )
@@ -17,35 +21,49 @@ export default function LandingScreen() {
   const navigate = useNavigate()
 
   return (
-    <div className="app-shell" style={{ backgroundColor: '#FFFFFF' }}>
-      <div style={{ display: 'flex', flexDirection: 'column', flex: 1, overflowY: 'auto' }}>
+    <div className="app-shell bg-surface">
+      <div className="flex flex-col flex-1 overflow-y-auto">
 
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: 60, paddingBottom: 32, paddingInline: 24 }}>
-          <span style={{ fontSize: 64, marginBottom: 12 }}>💰</span>
-          <h1 style={{ fontSize: 34, fontWeight: 700, color: '#1C1C1E', letterSpacing: 0.4 }}>ORI</h1>
-          <p style={{ fontSize: 17, color: '#8E8E93', marginTop: 6 }}>Take control of your finances</p>
+        <div className="flex flex-col items-center pt-16 pb-8 px-6">
+          <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center mb-4">
+            <Eye size={32} className="text-accent" />
+          </div>
+          <h1 className="text-3xl font-bold text-primary tracking-tight">ORI</h1>
+          <p className="text-base text-secondary mt-2 text-center leading-relaxed">
+            Know where your money goes &mdash;<br />and what it supports
+          </p>
         </div>
 
-        <div style={{ flex: 1, paddingInline: 24, display: 'flex', flexDirection: 'column', gap: 20 }}>
-          <FeatureRow icon="📊" title="Track Spending" desc="See exactly where your money goes each month" />
-          <FeatureRow icon="🏦" title="Manage Accounts" desc="Link and manage all your bank accounts in one place" />
-          <FeatureRow icon="🎯" title="Set Budgets" desc="Create budgets and get alerts before you overspend" />
-          <FeatureRow icon="📈" title="Insights" desc="Visual reports to understand your financial habits" />
+        <div className="flex-1 px-6 flex flex-col gap-6">
+          <FeatureRow
+            icon={Eye}
+            title="See the full picture"
+            desc="Uncover what companies really stand for — from political ties to environmental impact"
+          />
+          <FeatureRow
+            icon={ShieldCheck}
+            title="Align with your values"
+            desc="Set your priorities and find companies that match what matters to you"
+          />
+          <FeatureRow
+            icon={TrendingUp}
+            title="Track your impact"
+            desc="Add your spending and get a personalised ethical impact score"
+          />
+          <FeatureRow
+            icon={Leaf}
+            title="Make better choices"
+            desc="Get suggestions for alternatives that better align with your values"
+          />
         </div>
 
-        <div style={{ padding: 24, display: 'flex', flexDirection: 'column', gap: 12 }}>
-          <button
-            onClick={() => navigate('/signup')}
-            style={{ backgroundColor: '#007AFF', borderRadius: 14, paddingBlock: 16, color: '#FFF', fontSize: 17, fontWeight: 600 }}
-          >
+        <div className="p-6 flex flex-col gap-3">
+          <Button onClick={() => navigate('/signup')}>
             Get Started
-          </button>
-          <button
-            onClick={() => navigate('/login')}
-            style={{ paddingBlock: 16, color: '#007AFF', fontSize: 17, fontWeight: 400 }}
-          >
+          </Button>
+          <Button variant="ghost" onClick={() => navigate('/login')}>
             I already have an account
-          </button>
+          </Button>
         </div>
 
       </div>

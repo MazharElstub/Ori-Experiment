@@ -1,19 +1,22 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider, useAuth } from './context/AuthContext'
+import AppShell from './components/layout/AppShell'
 import LandingScreen from './screens/LandingScreen'
 import SignUpScreen from './screens/SignUpScreen'
 import LoginScreen from './screens/LoginScreen'
-import HomeScreen from './screens/HomeScreen'
+import DashboardScreen from './screens/DashboardScreen'
+import ExploreScreen from './screens/ExploreScreen'
+import SpendingScreen from './screens/SpendingScreen'
+import SettingsScreen from './screens/SettingsScreen'
 
 function RootNavigator() {
   const { currentUser, loading } = useAuth()
 
   if (loading) {
     return (
-      <div className="app-shell" style={{ justifyContent: 'center', alignItems: 'center' }}>
-        <div style={{ width: 32, height: 32, border: '3px solid #E5E5EA', borderTopColor: '#007AFF', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
-        <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+      <div className="app-shell justify-center items-center">
+        <div className="w-8 h-8 border-3 border-border border-t-accent rounded-full animate-spin" />
       </div>
     )
   }
@@ -21,10 +24,13 @@ function RootNavigator() {
   return (
     <Routes>
       {currentUser ? (
-        <>
-          <Route path="/home" element={<HomeScreen />} />
-          <Route path="*" element={<Navigate to="/home" replace />} />
-        </>
+        <Route element={<AppShell />}>
+          <Route path="/dashboard" element={<DashboardScreen />} />
+          <Route path="/explore" element={<ExploreScreen />} />
+          <Route path="/spending" element={<SpendingScreen />} />
+          <Route path="/settings" element={<SettingsScreen />} />
+          <Route path="*" element={<Navigate to="/dashboard" replace />} />
+        </Route>
       ) : (
         <>
           <Route path="/" element={<LandingScreen />} />
