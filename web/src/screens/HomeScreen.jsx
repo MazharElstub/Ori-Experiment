@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext'
 
 function UpcomingFeature({ icon, title, desc }) {
   return (
-    <div style={{ backgroundColor: '#FFFFFF', borderRadius: 14, padding: 16, display: 'flex', gap: 14, alignItems: 'flex-start', boxShadow: '0 1px 6px rgba(0,0,0,0.06)' }}>
+    <div style={{ backgroundColor: '#FFFFFF', borderRadius: 14, padding: 16, display: 'flex', gap: 14, alignItems: 'flex-start', boxShadow: '0 8px 24px rgba(0,0,0,0.12)' }}>
       <span style={{ fontSize: 28, flexShrink: 0 }}>{icon}</span>
       <div>
         <p style={{ fontSize: 16, fontWeight: 600, color: '#1C1C1E', marginBottom: 4 }}>{title}</p>
@@ -61,7 +61,7 @@ export default function HomeScreen() {
       )}
 
       <div style={{ flex: 1, overflowY: 'auto', padding: 20, display: 'flex', flexDirection: 'column', gap: 16 }}>
-        <div style={{ backgroundColor: '#FFFFFF', borderRadius: 16, padding: 24, display: 'flex', flexDirection: 'column', alignItems: 'center', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
+        <div style={{ backgroundColor: '#FFFFFF', borderRadius: 16, padding: 24, display: 'flex', flexDirection: 'column', alignItems: 'center', boxShadow: '0 8px 24px rgba(0,0,0,0.12)' }}>
           <span style={{ fontSize: 48, marginBottom: 12 }}>🚧</span>
           <p style={{ fontSize: 20, fontWeight: 700, color: '#1C1C1E', textAlign: 'center', marginBottom: 8 }}>Your dashboard is coming soon</p>
           <p style={{ fontSize: 15, color: '#8E8E93', textAlign: 'center', lineHeight: 1.6 }}>
